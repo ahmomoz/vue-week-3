@@ -14,13 +14,12 @@ const App = {
                 const url = `https://vue3-course-api.hexschool.io/v2/admin/signin`;
                 axios.post( `${url}` , this.user)
                 .then(res=>{
-                    const { token, expired} = res.data;
+                    const { token, expired } = res.data;
                     document.cookie = `hexToken = ${ token }; expires=${new Date( expired )};`;
                     alert("登入成功");
                     window.location.href = "products.html";
                 })
                 .catch(error=>{
-                    console.dir(error);
                     alert("請檢查帳號密碼是否有誤");
                 })
             }else{
